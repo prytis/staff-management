@@ -1,0 +1,5 @@
+.vscode
+trash/
+/vendor
+composer.json
+composer.lock
