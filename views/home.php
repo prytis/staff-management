@@ -13,12 +13,16 @@
   <body>
     <h1>Personalo valdymo programa</h1>
 
-      <div id='read'>
-        <read-table></read-table>
+      <div id='memb'>
+        <read-member></read-member>
+      </div>
+      <div id='proj' >  
+        <read-project></read-project>
       </div>
      
     <script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="/js/render.js"></script>    
+    <script src="/js/members.js"></script>   
+    <script src="/js/projects.js"></script>  
   </body>
 </html>
