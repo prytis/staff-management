@@ -5,7 +5,7 @@ Vue.component('read-member',{
          <h5>Nr Vardas Pavarde</h5>
          <p v-for="(name,id) in names" :key="names.id" v-text="name" index=id @delete="remove"></p>
          <input type="text" id="input" v-model="newName">
-         <input type="text" id="input" v-model="newSec">
+         <input type="text" id="input1" v-model="newSec">
          <button v-on:click="addName">Add New Record</button>
     </div>    
     `,
@@ -13,7 +13,8 @@ Vue.component('read-member',{
         return {
           names: [],
           newName: '',
-          newSec: ''
+          newSec: '',
+          newiD: ''
           
         }
     },
@@ -37,20 +38,23 @@ Vue.component('read-member',{
             });
           },
           addName(){
-            this.names.push('2'+' '+this.newName+
-               ' '+this.newSec)
-            url ='/controller';
+            
+            url ='/insert';
             axios.post(url, 
-                JSON.stringify({name: this.newName, surname: this.newSec, create:'OK' })
+                JSON.stringify({name: this.newName, surname: this.newSec, create:'OK', table:'users' })
                )
-               .then( function (response) {
-                 alert(response.data)
+               .then( function (response) 
+                {console.log(response)
+                    this.newId = response.data
                })
                .catch(function (error) {
                  console.log(error)
-               })
-            this.newName = ''
-            this.newSec = ''
+               }),
+            this.names.push(this.newId+' '+this.newName+
+            ' '+this.newSec),
+            this.newName = '',
+            this.newSec = '',
+            this.newId = ''
         },
     }
 })

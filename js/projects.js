@@ -3,7 +3,7 @@ Vue.component('read-project',{
     `<div>
          <h5>Nr Pavadinimas</h5>
          <p v-for="(name,id) in names" v-text="name" index=id ></p>
-         <input type="text" id="input" v-model="newName">
+         <input type="text" id="input3" v-model="newName">
          <button v-on:click="addName">Add New Record</button>
     </div>    
     `,

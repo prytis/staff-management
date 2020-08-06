@@ -16,7 +16,7 @@
       <div id='memb'>
         <read-member></read-member>
       </div>
-      <div id='proj' >  
+      <div id='proj'>  
         <read-project></read-project>
       </div>
      

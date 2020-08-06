@@ -1,17 +1,15 @@
 <?php
 $_POST = json_decode(array_keys($_POST)[0], true);
 
-if ( $_POST['name'] == 'project')
-{
-    
-    $conn = new mysqli(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
+    // $conn = new mysqli(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
 
     if ($conn->connect_error) 
     {
         die("Connection failed: " . $conn->connect_error);
     }
    
-
+    if ( $_POST['name'] == 'project')
+    {
     $sql = "SELECT id, name FROM projects";
 
     $result = mysqli_query($conn, $sql);
@@ -29,15 +27,6 @@ if ( $_POST['name'] == 'project')
 }
 if ( $_POST['name'] == 'member')
 {
-    
-    $conn = new mysqli(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
-
-    if ($conn->connect_error) 
-    {
-        die("Connection failed: " . $conn->connect_error);
-    }
-   
-
     $sql = "SELECT id, name, surname FROM users";
 
     $result = mysqli_query($conn, $sql);
@@ -50,6 +39,8 @@ if ( $_POST['name'] == 'member')
       } else {
         echo "0 results";
       }
+      
       $conn->close();
     echo json_encode($data);
 }
+

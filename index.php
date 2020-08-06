@@ -12,6 +12,9 @@ switch ($request) {
     case '/controller' :
         require __DIR__ . '/http/controller.php';
         break;
+    case '/insert' :
+        require __DIR__ . '/http/insert.php';
+        break;    
     default:
         http_response_code(404);
         require __DIR__ . '/views/404.php';
