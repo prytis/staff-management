@@ -36,10 +36,10 @@ Vue.component('read-project',{
             this.names.push(this.newName);
             url ='/controller';
             axios.post(url, 
-                JSON.stringify({name: this.newName, create:'OK' })
+                JSON.stringify({name: this.newName, create:'OK' , table:'projects'})
                )
                .then(function (response) {
-                 alert(response.data);
+                console.log(response);
                })
                .catch(function (error) {
                  console.log(error);

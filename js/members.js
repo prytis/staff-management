@@ -38,23 +38,23 @@ Vue.component('read-member',{
             });
           },
           addName(){
-            
             url ='/insert';
             axios.post(url, 
-                JSON.stringify({name: this.newName, surname: this.newSec, create:'OK', table:'users' })
+                JSON.stringify({name: this.newName, 
+                surname: this.newSec, create:'OK', table:'users' })
                )
                .then( function (response) 
-                {console.log(response)
+                {console.log(response),
                     this.newId = response.data
                })
                .catch(function (error) {
                  console.log(error)
                }),
-            this.names.push(this.newId+' '+this.newName+
+            this.names.push(this.newName+
             ' '+this.newSec),
             this.newName = '',
-            this.newSec = '',
-            this.newId = ''
+            this.newSec = ''
+            
         },
     }
 })

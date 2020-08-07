@@ -1,7 +1,7 @@
 <?php
 $_POST = json_decode(array_keys($_POST)[0], true);
 
-    // $conn = new mysqli(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
+    $conn = new mysqli(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
 
     if ($conn->connect_error) 
     {
@@ -17,7 +17,7 @@ $_POST = json_decode(array_keys($_POST)[0], true);
     if ($result->num_rows > 0) {
        
         while($row = $result->fetch_assoc()) {
-          array_push($data,$row["id"] .' '. $row["name"].' '. $row["surname"]);
+          array_push($data, $row["name"].' '. $row["surname"]);
         }
       } else {
         echo "0 results";
@@ -34,7 +34,7 @@ if ( $_POST['name'] == 'member')
     if ($result->num_rows > 0) {
        
         while($row = $result->fetch_assoc()) {
-          array_push($data,$row["id"] .' '. $row["name"].' '. $row["surname"]);
+          array_push($data, $row["name"].' '. $row["surname"]);
         }
       } else {
         echo "0 results";
