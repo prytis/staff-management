@@ -34,7 +34,7 @@ Vue.component('read-project',{
           },
           addName(){
             this.names.push(this.newName);
-            url ='/controller';
+            url ='/insert';
             axios.post(url, 
                 JSON.stringify({name: this.newName, create:'OK' , table:'projects'})
                )

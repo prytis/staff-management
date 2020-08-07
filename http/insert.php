@@ -23,12 +23,13 @@ $_POST = json_decode(array_keys($_POST)[0], true);
           if (isset($_POST['create'])) {
             $a = $_POST['name'];
             
-            $sql_add = "INSERT INTO users (`name`)  VALUES
+            $sql_add = "INSERT INTO projects (`name`)  VALUES
              ('$a')";
            
             $conn->query($sql_add);
             $last_id = $conn->insert_id;
-            echo $last_id;
+            // echo $last_id;
+            echo '1000';
             
         }
     }
