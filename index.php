@@ -15,6 +15,12 @@ switch ($request) {
     case '/insert' :
         require __DIR__ . '/http/insert.php';
         break;    
+    case '/delete' :
+        require __DIR__ . '/http/delete.php';
+        break;  
+    case '/update' :
+        require __DIR__ . '/http/update.php';
+        break; 
     default:
         http_response_code(404);
         require __DIR__ . '/views/404.php';

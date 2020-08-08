@@ -9,8 +9,7 @@ $_POST = json_decode(array_keys($_POST)[0], true);
           if (isset($_POST['create'])) {
             $a = $_POST['name'];
             $b = $_POST['surname'];
-            $sql_add = "INSERT INTO users (`name`,`surname`)  VALUES
-             ('$a','$b')";
+            $sql_add = "INSERT INTO users (`name`,`surname`)  VALUES ('$a','$b')";
            
             $conn->query($sql_add);
             $last_id = $conn->insert_id;
@@ -28,8 +27,8 @@ $_POST = json_decode(array_keys($_POST)[0], true);
            
             $conn->query($sql_add);
             $last_id = $conn->insert_id;
-            // echo $last_id;
-            echo '1000';
+            echo $last_id;
+            
             
         }
     }

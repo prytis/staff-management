@@ -17,7 +17,8 @@ $_POST = json_decode(array_keys($_POST)[0], true);
     if ($result->num_rows > 0) {
        
         while($row = $result->fetch_assoc()) {
-          array_push($data, $row["name"].' '. $row["surname"]);
+          $line = array("id" => $row["id"] , "name" => $row["name"]);
+          array_push($data, $line);
         }
       } else {
         echo "0 results";
@@ -34,7 +35,8 @@ if ( $_POST['name'] == 'member')
     if ($result->num_rows > 0) {
        
         while($row = $result->fetch_assoc()) {
-          array_push($data, $row["name"].' '. $row["surname"]);
+          $line = array("id" => $row["id"] , "name" => $row["name"],"surname" => $row["surname"]);
+          array_push($data, $line);
         }
       } else {
         echo "0 results";

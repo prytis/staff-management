@@ -1,9 +1,11 @@
 Vue.component('read-member',{
-  // v-for="task in tasks" :key="task.id" :task="task" @delete="remove"
+ 
     template:
     `<div>
          <h5>Nr Vardas Pavarde</h5>
-         <p v-for="(name,id) in names" :key="names.id" v-text="name" index=id @delete="remove"></p>
+         <p v-for="(name,index) in names" v-on:click.prevent="remove(index)">
+         {{name.id}}  {{name.name}}  {{name.surname}}
+         </p>
          <input type="text" id="input" v-model="newName">
          <input type="text" id="input1" v-model="newSec">
          <button v-on:click="addName">Add New Record</button>
@@ -11,10 +13,14 @@ Vue.component('read-member',{
     `,
     data(){
         return {
-          names: [],
+          names: [
+            {id:''},
+            {name:''},
+            {sec:''}
+          ],
           newName: '',
           newSec: '',
-          newiD: ''
+          newId: ''
           
         }
     },
@@ -22,8 +28,18 @@ Vue.component('read-member',{
         this.setDir()
       },
     methods: {
-        remove(){
-
+        remove(id){
+          url ='/delete';
+          axios.post(url, 
+            JSON.stringify({name: this.names[id].id ,table:'members' })
+            )
+            .then( response => { console.log(response)
+              this.names.splice(id,1);
+           
+            })
+            .catch(function () {
+              console.log();
+            });
         },
         goEmploee(){
           
@@ -43,19 +59,20 @@ Vue.component('read-member',{
                 JSON.stringify({name: this.newName, 
                 surname: this.newSec, create:'OK', table:'users' })
                )
-               .then( function (response) 
+               .then( response => 
                 {console.log(response),
                     this.newId = response.data
+                    this.names.push( {id:this.newId , name:this.newName, surname:this.newSec} ),
+                    this.newId = '',
+                    this.newName = '',
+                    this.newSec = ''
                })
                .catch(function (error) {
                  console.log(error)
-               }),
-            this.names.push(this.newName+
-            ' '+this.newSec),
-            this.newName = '',
-            this.newSec = ''
-            
-        },
+               })
+        }
+       
+
     }
 })
 var app = new Vue({
