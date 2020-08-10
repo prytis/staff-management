@@ -1,13 +1,13 @@
 Vue.component('read-project',{
     template:
     `<div>
-    <h5>Nr Pavadinimas</h5>
-    <p v-for="(name,index) in names" v-on:click="handle(index,$event)">
-    {{name.id}}  {{name.name}} 
-    </p>
-    <input type="text" id="input" v-model="newName">
-    <button v-on:click="addName">Add New Record</button>
-</div>        
+      <h5>Nr Pavadinimas</h5>
+      <p v-for="(name,index) in names" v-on:click="handle(index,$event)">
+      {{name.id}}  {{name.name}} 
+      </p>
+      <input type="text" id="input" v-model="newName">
+      <button v-on:click="addName">Add New Record</button>
+    </div>        
     `,
     data(){
         return {
@@ -23,6 +23,16 @@ Vue.component('read-project',{
         this.renderPage()
       },
     methods: {
+      dialogBox(header,holder){
+        var txt;
+        var name = prompt(header, holder);
+        if (name == null || name == "") {
+          return holder;
+        } else {
+           return name;
+      }
+        
+      },
       handle(id,e) {
         if (e.shiftKey) this.remove(id)
         else this.update(id)
@@ -41,23 +51,23 @@ Vue.component('read-project',{
           });
       },
         update(id){
-         
+          this.newName=this.dialogBox('Enter new project name',this.names[id].name);
           url ='/update';
             axios.post(url, 
                 JSON.stringify({id:this.names[id].id ,table:'projects', 
-                name:'Tomasass' , create:'OK' })
+                name:this.newName , create:'OK' })
                )
                .then( response => 
                 {console.log(response),
-                    this.names[id].name = 'Tomasass'
-                    
+                    this.names[id].name = this.newName,
+                    this.newName = ''
                })
                .catch(function (error) {
                  console.log(error)
                })
         },
         renderPage(){
-          url ='/controller';
+          url ='/read';
           axios.post(url, JSON.stringify({name: 'project'}))
           .then( response => {console.log(response)
           this.names = response.data} )

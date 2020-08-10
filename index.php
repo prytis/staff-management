@@ -9,8 +9,8 @@ switch ($request) {
     case '' :
         require __DIR__ . '/views/home.php';
         break;
-    case '/controller' :
-        require __DIR__ . '/http/controller.php';
+    case '/read' :
+        require __DIR__ . '/http/read.php';
         break;
     case '/insert' :
         require __DIR__ . '/http/insert.php';

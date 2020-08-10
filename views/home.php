@@ -19,6 +19,7 @@
       <div id='proj'>  
         <read-project></read-project>
       </div>
+      
      
      
     <script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script>
