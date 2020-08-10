@@ -7,7 +7,7 @@ Vue.component('read-member',{
          {{name.id}}  {{name.name}}  {{name.surname}}
          </p>
          <input type="text" id="input" v-model="newName">
-         <input type="text" id="input1" v-model="newsurname">
+         <input type="text" id="input1" v-model="newSurname">
          <button v-on:click="addName">Add New Record</button>
     </div>    
     `,
