@@ -80,7 +80,7 @@ Vue.component('read-member',{
         },
         setDir(){
             url ='/read';
-            axios.post(url, JSON.stringify({name: 'member'}))
+            axios.post(url, JSON.stringify({name: 'members'}))
             .then( response => {console.log(response)
             this.names = response.data} )
             .catch(function () {
@@ -91,7 +91,7 @@ Vue.component('read-member',{
             url ='/insert';
             axios.post(url, 
                 JSON.stringify({name: this.newName, 
-                surname: this.newSurname, create:'OK', table:'users' })
+                surname: this.newSurname, create:'OK', table:'members' })
                )
                .then( response => 
                 {console.log(response),

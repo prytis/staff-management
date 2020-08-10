@@ -22,3 +22,4 @@ if ( $_POST['table'] === 'projects')
     $conn->query($sql_delete);
     echo '1000';
 }
+$conn->close();

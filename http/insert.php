@@ -32,4 +32,4 @@ $_POST = json_decode(array_keys($_POST)[0], true);
             
         }
     }
-       
+    $conn->close(); 

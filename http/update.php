@@ -25,3 +25,4 @@ if ( $_POST['table'] === 'projects')
     $conn->query($sql_update);
     echo 'OK 1000';
 }
+$conn->close();

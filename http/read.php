@@ -26,7 +26,7 @@ $_POST = json_decode(array_keys($_POST)[0], true);
       $conn->close();
     echo json_encode($data);
 }
-if ( $_POST['name'] == 'member')
+if ( $_POST['name'] == 'members')
 {
     $sql = "SELECT id, name, surname FROM members";
 
