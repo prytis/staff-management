@@ -18,6 +18,7 @@ Vue.component('read-member',{
             {name:''},
             {surname:''}
           ],
+          selectProj:'',
           newName: '',
           newSurname: '',
           newId: ''
@@ -28,7 +29,22 @@ Vue.component('read-member',{
         this.setDir()
       },
     methods: {
-    
+      selected(id){
+        if ( this.selectProj != '')
+        {
+          url = '/update'
+          axios.post(url, 
+            JSON.stringify({memberid:this.names[id].id , selproj:this.selectProj, memberselected:'YES' })
+            )
+            .then( response => { console.log(response)
+              
+            })
+        }
+        else 
+        {
+          alert('Project not selected')
+        } 
+      },
       dialogBox(header,holder){
         var txt;
         var name = prompt(header, holder);
@@ -40,8 +56,11 @@ Vue.component('read-member',{
         
       },
       handle(id,e) {
-        if (e.shiftKey) this.remove(id)
-        else this.update(id)
+        if (e.shiftKey) {
+          this.remove(id)
+        } else if (e.altKey) {
+          this.update(id)
+        } else this.selected(id)
       },
         remove(id){
           url ='/delete';

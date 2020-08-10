@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-
+    <link rel="stylesheet" href="./css/table.css">
     <title>Personalo valdymas</title>
 
     <!-- <link rel="stylesheet" href="css/style.css" /> -->
@@ -13,10 +13,10 @@
   <body>
     <h1>Personalo valdymo programa</h1>
 
-      <div id='memb'>
+      <div class="container" id='memb'>
         <read-member></read-member>
       </div>
-      <div id='proj'>  
+      <div class="container" id='proj'>  
         <read-project></read-project>
       </div>
       

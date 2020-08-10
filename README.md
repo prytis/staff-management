@@ -11,6 +11,7 @@ Setup project in localhost:
 3. All dependencies in html script cdn mode
 4. Fulfil login data in file config.php
 5. Fulfil login data in file http/create.php
+6. USE '/' DIRECTORY_SEPARATOR for correct path handling.
 6. Execute script  - php http/create.php in terminal -> tables will be created
 and data inserted.
 7. Run project on localhost.

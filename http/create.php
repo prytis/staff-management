@@ -26,4 +26,17 @@ $sql = "CREATE TABLE `members` (
                                               ('JAVA'),
                                               ('SQL')";
   mysqli_query($conn, $sql);
+  $sql = "CREATE TABLE `projectmembers` (
+    `id` int(5) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    `memberId` text(30) NOT NULL,
+    `projId` text(30) NOT NULL
+  ) ENGINE=InnoDB DEFAULT CHARSET=utf8"; 
+  mysqli_query($conn, $sql);
+
+  $sql ="CREATE TABLE `projectmembers` (
+    `id` int(5) UNSIGNED NOT NULL,
+    `memberId` tinytext,
+    `projId` tinytext
+  ) ENGINE=InnoDB DEFAULT CHARSET=utf8";
+  mysqli_query($conn, $sql);
   $conn->close();

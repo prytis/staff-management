@@ -25,4 +25,20 @@ if ( $_POST['table'] === 'projects')
     $conn->query($sql_update);
     echo 'OK 1000';
 }
+
+if ( $_POST['selected'] === 'YES') 
+{
+    $proj_id = $_POST['id'];
+    // $sql_insert = "INSERT INTO projectmembers (`projId`) VALUES ('$proj_id')";
+    // $conn->query($sql_insert);
+    echo $proj_id;
+}
+if ( $_POST['memberselected'] === 'YES') 
+{
+    $proj_id = $_POST['selproj'];
+    $proj_memberId = $_POST['memberid'];
+    $sql_insert = "INSERT INTO projectmembers (`projId`,`memberId`) VALUES ('$proj_id','$proj_memberId')";
+    $conn->query($sql_insert);
+    echo $proj_id;
+}
 $conn->close();

@@ -1,7 +1,9 @@
 Vue.component('read-project',{
     template:
     `<div>
-      <h5>Nr Pavadinimas</h5>
+      <p>Selected project: {{selectProj}}</p>
+      <h3>Nr Pavadinimas</h3>
+     
       <p v-for="(name,index) in names" v-on:click="handle(index,$event)">
       {{name.id}}  {{name.name}} 
       </p>
@@ -15,14 +17,33 @@ Vue.component('read-project',{
             {id:''},
             {name:''}
           ],
+          selectProj:'',
           newName: '',
-          newId: ''
+          newId: '',
+          newMember:''
         }
     },
     created: function() {
         this.renderPage()
       },
     methods: {
+      selected(id){
+        if ( this.selectProj == '')
+        {
+          this.selectProj = this.names[id].name
+          url = '/update'
+          axios.post(url, 
+            JSON.stringify({id:this.names[id].id , selected:'YES' })
+            )
+            .then( response => { console.log(response)
+              
+            })
+        }
+        else 
+        {
+          this.selectProj = ''
+        } 
+      },
       dialogBox(header,holder){
         var txt;
         var name = prompt(header, holder);
@@ -34,8 +55,11 @@ Vue.component('read-project',{
         
       },
       handle(id,e) {
-        if (e.shiftKey) this.remove(id)
-        else this.update(id)
+        if (e.shiftKey) {
+          this.remove(id)
+        } else if (e.altKey) {
+          this.update(id)
+        } else this.selected(id)
       },
       remove(id){
         url ='/delete';
@@ -95,6 +119,15 @@ Vue.component('read-project',{
         }
     }
 })
+Vue.mixin({
+  data: function() {
+    return {
+      selectProj:''
+    }
+  }
+})
+
 var app = new Vue({
     el: '#proj',
+    
 });
