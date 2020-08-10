@@ -16,10 +16,12 @@ Setup project in localhost:
 and data inserted.
 7. Run project on localhost.
 8. All functions on mouse click:
- - click will provide update
- - shift+click will provide delete
- - insert simply enter data in down placed input field and push button "Add new record"
+ - click will provide select project i project table and when is selected project (highlited on project table) assign member to project
+ - shift+click will provide delete on both tables 
+ - shift+alt will provide update request (alert prompt) on both tables
+ - insert new record - simply enter data in down placed input field and push button "Add new record"
 
+ Good luck!
 
 
 ### Authors
