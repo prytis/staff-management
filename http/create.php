@@ -15,3 +15,4 @@ $sql = "CREATE TABLE `users` (
     `id` int(5) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     `name` text(30) NOT NULL
   ) ENGINE=InnoDB DEFAULT CHARSET=utf8"; 
+  mysqli_query($conn, $sql);
