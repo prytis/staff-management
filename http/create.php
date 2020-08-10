@@ -5,7 +5,7 @@ DEFINE('DB_HOST', '');
 DEFINE('DB_DATABASE', '');
 $conn = new mysqli(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
 
-$sql = "CREATE TABLE `users` (
+$sql = "CREATE TABLE `members` (
     `id` int(5) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     `name` text(30) NOT NULL,
     `surname` text(30) NOT NULL
