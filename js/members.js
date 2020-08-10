@@ -28,6 +28,7 @@ Vue.component('read-member',{
         this.setDir()
       },
     methods: {
+    
       dialogBox(header,holder){
         var txt;
         var name = prompt(header, holder);
@@ -45,7 +46,7 @@ Vue.component('read-member',{
         remove(id){
           url ='/delete';
           axios.post(url, 
-            JSON.stringify({name: this.names[id].id ,table:'members' })
+            JSON.stringify({name: this.names[id].id ,table:'members',sep:'sep' })
             )
             .then( response => { console.log(response)
               this.names.splice(id,1);

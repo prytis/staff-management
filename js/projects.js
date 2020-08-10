@@ -5,7 +5,7 @@ Vue.component('read-project',{
       <p v-for="(name,index) in names" v-on:click="handle(index,$event)">
       {{name.id}}  {{name.name}} 
       </p>
-      <input type="text" id="input" v-model="newName">
+      <input type="text" id="input3" v-model="newName">
       <button v-on:click="addName">Add New Record</button>
     </div>        
     `,

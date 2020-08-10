@@ -1,8 +1,9 @@
 <?php
 include ('config.php');
 $request = $_SERVER['REQUEST_URI'];
-define('DS', DIRECTORY_SEPARATOR);
-switch ($request) {
+DEFINE('DS', DIRECTORY_SEPARATOR);
+switch ($request) 
+{
     case '/' :
         require __DIR__ . '/views/home.php';
         break;

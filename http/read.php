@@ -28,7 +28,7 @@ $_POST = json_decode(array_keys($_POST)[0], true);
 }
 if ( $_POST['name'] == 'member')
 {
-    $sql = "SELECT id, name, surname FROM users";
+    $sql = "SELECT id, name, surname FROM members";
 
     $result = mysqli_query($conn, $sql);
     $data =[];

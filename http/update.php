@@ -11,7 +11,7 @@ if ( $_POST['table'] === 'members')
     $name = $_POST['name'];
     $id = $_POST['id'];
     $surname = $_POST['surname'];
-    $sql_update = "UPDATE users SET name = '$name', surname = '$surname' WHERE id = '$id'";
+    $sql_update = "UPDATE members SET name = '$name', surname = '$surname' WHERE id = '$id'";
     $conn->query($sql_update);
     echo '1000';
 }

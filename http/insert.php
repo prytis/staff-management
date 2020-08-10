@@ -4,12 +4,12 @@ $_POST = json_decode(array_keys($_POST)[0], true);
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
           }
-     if ($_POST['table'] === 'users')
+     if ($_POST['table'] === 'members')
      {
           if (isset($_POST['create'])) {
             $a = $_POST['name'];
             $b = $_POST['surname'];
-            $sql_add = "INSERT INTO users (`name`,`surname`)  VALUES ('$a','$b')";
+            $sql_add = "INSERT INTO members (`name`,`surname`)  VALUES ('$a','$b')";
            
             $conn->query($sql_add);
             $last_id = $conn->insert_id;

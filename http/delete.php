@@ -9,9 +9,9 @@ $_POST = json_decode(array_keys($_POST)[0], true);
 if ( $_POST['table'] === 'members') 
 {
     $id = $_POST['name'];
-    $sql_delete = "DELETE FROM users WHERE id = '$id'";
+    $sql_delete = "DELETE FROM members WHERE id = '$id'";
     $conn->query($sql_delete);
-    echo '1000';
+    echo 'Separator: '.DIRECTORY_SEPARATOR." !";
 }
 
 

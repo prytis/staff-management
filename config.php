@@ -3,5 +3,5 @@
     DEFINE('DB_PASSWORD', 'root');
     DEFINE('DB_HOST', 'mysql');
     DEFINE('DB_DATABASE', 'dbTest');
-    DEFINE('/', DIRECTORY_SEPARATOR);
+   
     
