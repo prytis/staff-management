@@ -1,29 +1,29 @@
-<?php
-include ('config.php');
-$request = $_SERVER['REQUEST_URI'];
-DEFINE('DS', DIRECTORY_SEPARATOR);
-switch ($request) 
-{
-    case '/' :
-        require __DIR__ . '/views/home.php';
-        break;
-    case '' :
-        require __DIR__ . '/views/home.php';
-        break;
-    case '/read' :
-        require __DIR__ . '/http/read.php';
-        break;
-    case '/insert' :
-        require __DIR__ . '/http/insert.php';
-        break;    
-    case '/delete' :
-        require __DIR__ . '/http/delete.php';
-        break;  
-    case '/update' :
-        require __DIR__ . '/http/update.php';
-        break; 
-    default:
-        http_response_code(404);
-        require __DIR__ . '/views/404.php';
-        break;
-}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="favicon.ico">
+    <title>Msg Serv</title>
+
+    <!-- <link rel="stylesheet" href="css/style.css" /> -->
+  </head>
+
+  <body>
+
+  <h1>Small message server</h1>
+
+  
+          <div id='msg'>
+            <read-msg></read-msg>
+          </div>
+   
+      
+     
+     
+    <script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="/js/members.js"></script>   
+  </body>
+</html>

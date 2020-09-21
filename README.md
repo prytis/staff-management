@@ -1,28 +1,22 @@
-# SIMPLE STAFF MANAGEMENT SYSTEM 
-### Simple sql + php project
+# SMALL MESSAGE SERVER FORONTEND PART
+### GO & Vue project
 
-This project is for educational porpuses only. Pull request are welcome!
 
 Setup project in localhost: 
 
 1. Clone project
-2. cd staff-management    
-2. Is not necessary run composer and npm
-3. All dependencies in html script cdn mode
-4. Fulfil login data in file config.php
-5. Fulfil login data in file http/create.php
-6. USE '/' DIRECTORY_SEPARATOR for correct path handling.
-6. Execute script  - php http/create.php in terminal -> tables will be created
-and data inserted.
-7. Run project on localhost.
-8. All functions on mouse click:
- - click will provide select project in project table and when project is selected  (highlited on project table) You can assign member to project in member table with mouse click.
- - shift+click will provide delete on both tables 
- - shift+alt will provide update request (alert prompt) on both tables
- - insert new record - simply enter data in down placed input field and push button "Add new record"
+2. cd msgserv    
+2. Is not necessary run  npm
+3. All dependencies in  script cdn mode
+4. Run project front on localhost:8000.
+5. cd to /back
+5. go build
+6. ./back
+7. Send messages from front page
 
- Good luck!
+ ### Project - on development stage.
+
 
 
 ### Authors
-[Rytis](https://github.com/prytis)
+[Ryttis](https://github.com/ryttis)
